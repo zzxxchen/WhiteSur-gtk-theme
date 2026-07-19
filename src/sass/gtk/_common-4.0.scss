@@ -2321,7 +2321,7 @@ headerbar {
   // Titlebuttons
   windowcontrols {
     border-spacing: $container_padding;
-    padding: 0 10px;
+    padding: 0 4px;
   
     &:not(.empty) {
       &.start:dir(ltr),

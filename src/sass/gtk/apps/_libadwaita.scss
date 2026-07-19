@@ -1093,3 +1093,33 @@ themeswitcher { // Gnome console
     }
   }
 }
+
+//
+// AdwTabOverview
+//
+
+tabthumbnail .tab-close-button,
+tabthumbnail .tab-close-button:hover,
+tabthumbnail .tab-close-button:active,
+tabthumbnail .tab-close-button:checked {
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+tabthumbnail .card,
+tabthumbnail picture {
+    border-radius: 15px;
+    outline-color: gtkalpha($borders_color,.8);
+    button.tab-close-button {
+      padding: 0;
+
+      &, &:hover, &:active {
+        background: none;
+        border: none;
+      }
+    }
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.05);
+}
