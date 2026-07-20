@@ -1110,16 +1110,17 @@ tabthumbnail .tab-close-button:checked {
 
 tabthumbnail .card,
 tabthumbnail picture {
-    border-radius: 15px;
-    outline-color: gtkalpha($borders_color,.8);
-    button.tab-close-button {
-      padding: 0;
+  border-radius: 15px;
+  outline-color: gtkalpha($borders_color,.8);
 
-      &, &:hover, &:active {
-        background: none;
-        border: none;
-      }
+  button.tab-close-button {
+    padding: 0;
+
+    &, &:hover, &:active {
+      background: none;
+      border: none;
     }
-    box-shadow:
-        0 2px 8px rgba(0,0,0,.05);
+  }
+
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
 }
