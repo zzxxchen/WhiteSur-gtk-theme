@@ -58,7 +58,8 @@ $flap_sidebar_size: 240px;
 }
 
 .nautilus-window,
-#NautilusFileChooser {
+#NautilusFileChooser,
+.nautilus-file-chooser {
   @if $nautilus_style =='stable' or $nautilus_style =='glassy' {
     &.background.csd {
       &, &:backdrop {
@@ -179,7 +180,7 @@ $flap_sidebar_size: 240px;
       padding: 0;
       @extend %nautilus_view;
 
-      #NautilusViewCell {
+      #NautilusViewCell, .nautilus-view-cell {
         padding: 0;
 
         .icon-ui-labels-box {
@@ -214,7 +215,7 @@ $flap_sidebar_size: 240px;
         > cell {
           padding: 0;
 
-          > widget#NautilusViewCell {
+          > widget#NautilusViewCell, > widget.nautilus-view-cell {
             padding: $container_padding / 2 $container_padding * 1.5;
           }
         }
@@ -320,6 +321,9 @@ navigation-view-page > toolbarview > scrolledwindow > viewport > clamp {
 
 #sidebar_my_computer_wrapper {
   padding: 0;
+}
+
+#place_my_computer {
   margin-bottom: $container_padding / 2;
 }
 
