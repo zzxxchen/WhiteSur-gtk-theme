@@ -286,6 +286,15 @@ toolbarspring {
 		/* min-height: 26px !important;
 		min-width: 28px !important; */
 		margin: 3px 0 !important;
+		list-style-image: url("../icons/trust-active.svg") !important;
+	}
+
+	#trust-icon-container.insecure {
+		list-style-image: url("../icons/trust-inactive.svg") !important;
+	}
+
+	#trust-icon-container.warning {
+		list-style-image: url("../icons/trust-error.svg") !important;
 	}
 }
 
