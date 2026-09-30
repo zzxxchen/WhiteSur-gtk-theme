@@ -339,6 +339,14 @@ navigation-view-page > toolbarview > scrolledwindow > viewport > clamp {
 }
 
 //
+// Gnome Papers
+//
+
+.content-pane toolbarview .top-bar headerbar box.numeric > entry {
+  min-height: $menuitem_size - 6px;
+}
+
+//
 // Gnome Control Center
 //
 
