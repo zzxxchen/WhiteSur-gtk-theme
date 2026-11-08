@@ -542,7 +542,21 @@ config_gtk4() {
   rm -rf                                                                                      "${TARGET_DIR}/"{gtk.css,gtk-dark.css,gtk-Light.css,gtk-Dark.css,assets,windows-assets}
   sassc ${SASSC_OPT} "${THEME_SRC_DIR}/main/gtk-4.0/gtk-Light.scss"                           "${TARGET_DIR}/gtk-Light.css"
   sassc ${SASSC_OPT} "${THEME_SRC_DIR}/main/gtk-4.0/gtk-Dark.scss"                            "${TARGET_DIR}/gtk-Dark.css"
-  ln -sf "${TARGET_DIR}/gtk${color}.css"                                                      "${TARGET_DIR}/gtk.css"
+
+  # GTK only reads ~/.config/gtk-4.0/gtk.css as the user stylesheet (it never
+  # loads gtk-dark.css from there), so both variants have to be merged into one
+  # file. The media query follows GtkSettings:gtk-interface-color-scheme, which
+  # libadwaita sets from the app's color scheme (system or per-app setting).
+  {
+    printf '/* WhiteSur: light/dark branches, selected via prefers-color-scheme */\n'
+    printf '@media (prefers-color-scheme: light) {\n'
+    cat "${TARGET_DIR}/gtk-Light.css"
+    printf '\n}'
+    printf '\n\n@media (prefers-color-scheme: dark) {\n'
+    cat "${TARGET_DIR}/gtk-Dark.css"
+    printf '\n}\n'
+  } > "${TARGET_DIR}/gtk.css"
+
   ln -sf "${TARGET_DIR}/gtk-Dark.css"                                                         "${TARGET_DIR}/gtk-dark.css"
   cp -r "${THEME_SRC_DIR}/assets/gtk/common-assets/assets"                                    "${TARGET_DIR}"
   cp -r "${THEME_SRC_DIR}/assets/gtk/common-assets/sidebar-assets/"*".png"                    "${TARGET_DIR}/assets"
