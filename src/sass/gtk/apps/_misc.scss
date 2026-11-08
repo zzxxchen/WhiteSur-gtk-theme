@@ -199,7 +199,10 @@ window.background.chromium {
   color: $text_color;
 
   headerbar.titlebar {
-    padding: 0 $container_padding * 2;
+    // Chromium draws its own CSD titlebar buttons (nav_button_provider_gtk3);
+    // this inset controls their distance from the window edge.
+    // 8px + 1px asset margin + 1px border = ~10px, matching GTK3 CSD apps.
+    padding: 0 8px;
 
     button.toggle { // account-button (> 64.0.3282?)
       border: none;
