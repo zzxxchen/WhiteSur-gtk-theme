@@ -304,6 +304,12 @@
 		width: 32px !important;
 		height: 32px !important;
 	}
+
+	/* The private browsing indicator is a sibling of .toolbar-items; offset it
+	 * as well so private windows keep the same tab bar height as normal ones. */
+	.private-browsing-indicator-button {
+		margin-bottom: -1px !important;
+	}
 }
 
 .tab-audio-button {
