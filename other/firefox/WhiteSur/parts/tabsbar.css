@@ -66,6 +66,12 @@
 		border-color: transparent !important;
 	}
 
+	/* The hover fill of the tab after the selected one covers the selected
+	   tab's edge shadow, so draw the separator again while it is hovered. */
+	.tabbrowser-tab[selected] + .tabbrowser-tab:hover {
+		border-color: var(--gnome-tabbar-tab-border-color) !important;
+	}
+
 	.tabbrowser-tab:first-of-type {
 		border-left: none !important;
 	}
